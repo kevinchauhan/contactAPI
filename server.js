@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 5000
 connectDb()
 
 app.use(express.json())
+app.get('/', (req, res) => res.send('Welcome to contacts rest api'))
 app.use('/api/contacts', require('./routes/contactRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 app.use(errorHandler)
