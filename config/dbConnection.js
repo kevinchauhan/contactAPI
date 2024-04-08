@@ -10,7 +10,7 @@ const connectDb = async () => {
             useUnifiedTopology: true,
             serverSelectionTimeoutMS: 5000
         });
-        console.log('Database connected...',connect.connection.name)
+        console.log('Database connected...', connect.connection.name)
     } catch (err) {
         console.log(err)
         process.exit(1)
