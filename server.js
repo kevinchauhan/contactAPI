@@ -1,5 +1,6 @@
 const express = require('express')
 const fs = require('fs')
+const path = require('path')
 const errorHandler = require('./middleware/errorHandler')
 const connectDb = require('./config/dbConnection')
 const { marked } = require('marked');
@@ -12,7 +13,7 @@ connectDb()
 
 app.use(express.json())
 app.get('/', (req, res) => {
-    fs.readFile('index.md', 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, 'index.md'), 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading README.md:', err);
             res.send('Welcome to contacts rest api')
